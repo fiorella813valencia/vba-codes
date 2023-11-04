@@ -1,0 +1,330 @@
+Sub SepararUserPrincipalName()
+    Dim ws As Worksheet
+    Dim wsDestino As Worksheet
+    Dim rng As Range
+    Dim cell As Range
+    Dim newRow As Long
+    Dim UserPrincipalNameValue As String
+    Dim RetentionPolicyValue As String
+    Dim OfficeValue As String
+    Dim RoleAssignmentPolicyValue As String
+    Dim ArchiveQuotaValue As String
+    Dim UsageLocationValue As String
+    Dim AccountDisabledValue As String
+    Dim AliasValue As String
+    Dim OrganizationalUnitValue As String
+    Dim DisplayNameValue As String
+    Dim EmailAddressesValue As String
+    Dim LegacyExchangeDNValue As String
+    DIm MaxSendSizeValue As String
+    Dim MaxReceiveSizeValue As String
+    Dim EmailAddressPolicyEnabledValue As String
+    Dim PrimarySmtpAddressValue As String
+    Dim RequireSenderAuthenticationEnabledValue As String
+    Dim WindowsEmailAddressValue As String
+    Dim ObjectCategoryValue As String
+    Dim ObjectClassValue As String
+    Dim WhenChangedValue As String
+    Dim WhenCreatedValue As String    
+
+    
+    ' Define la hoja de Excel en la que trabajaremos (donde se encuentra la información original)
+    Set ws = ThisWorkbook.Sheets("Lista_completa_campos_usuarios_") ' Reemplaza "NombreDeTuHoja" por el nombre de tu hoja
+    
+    ' Define la hoja de destino donde se colocarán los resultados
+    Set wsDestino = ThisWorkbook.Sheets("NuevaHoja") ' Reemplaza "NuevaHoja" por el nombre de la hoja de destino
+    
+    ' Define el rango de celdas que contiene los datos en la columna A
+    Set rng = ws.Range("A1:A" & ws.Cells(Rows.Count, "A").End(xlUp).Row) ' Ajusta el rango según tu caso
+    
+    ' Agregar encabezado para la columna "UserPrincipalName" en la hoja de destino
+    wsDestino.Cells(1, 1).Value = "UserPrincipalName"
+    newRow = 2 ' Comenzar en la segunda fila en la hoja de destino
+    
+    For Each cell In rng
+        If cell.Value = "UserPrincipalName" Then
+            ' Buscar la celda correspondiente en la columna C
+            UserPrincipalNameValue = Trim(cell.Offset(0, 2).Value)
+            wsDestino.Cells(newRow, 1).Value = UserPrincipalNameValue
+            newRow = newRow + 1
+        End If
+    Next cell
+
+    ' Agregar encabezado para la columna "RetentionPolicy" en la hoja de destino
+    wsDestino.Cells(1, 2).Value = "RetentionPolicy"
+    newRow = 2 ' Comenzar en la segunda fila en la hoja de destino
+    
+    For Each cell In rng
+        If cell.Value = "RetentionPolicy" Then
+            ' Buscar la celda correspondiente en la columna C
+            RetentionPolicyValue = Trim(cell.Offset(0, 2).Value)
+            wsDestino.Cells(newRow, 2).Value = RetentionPolicyValue
+            newRow = newRow + 1
+        End If
+    Next cell
+
+    ' Agregar encabezado para la columna "Office" en la hoja de destino
+    wsDestino.Cells(1, 3).Value = "Office"
+    newRow = 2 ' Comenzar en la segunda fila en la hoja de destino
+    
+    For Each cell In rng
+        If cell.Value = "Office" Then
+            ' Buscar la celda correspondiente en la columna C
+            OfficeValue = Trim(cell.Offset(0, 2).Value)
+            wsDestino.Cells(newRow, 3).Value = OfficeValue
+            newRow = newRow + 1
+        End If
+    Next cell
+
+    ' Agregar encabezado para la columna "RoleAssignmentPolicy" en la hoja de destino
+    wsDestino.Cells(1, 4).Value = "RoleAssignmentPolicy"
+    newRow = 2 ' Comenzar en la segunda fila en la hoja de destino
+    
+    For Each cell In rng
+        If cell.Value = "RoleAssignmentPolicy" Then
+            ' Buscar la celda correspondiente en la columna C
+            RoleAssignmentPolicyValue = Trim(cell.Offset(0, 2).Value)
+            wsDestino.Cells(newRow, 4).Value = RoleAssignmentPolicyValue
+            newRow = newRow + 1
+        End If
+    Next cell
+
+    ' Agregar encabezado para la columna "ArchiveQuota" en la hoja de destino
+    wsDestino.Cells(1, 5).Value = "ArchiveQuota"
+    newRow = 2 ' Comenzar en la segunda fila en la hoja de destino
+    
+    For Each cell In rng
+        If cell.Value ="ArchiveQuota" Then
+            ' Buscar la celda correspondiente en la columna C
+            ArchiveQuotaValue = Trim(cell.Offset(0, 2).Value)
+            wsDestino.Cells(newRow, 5).Value = ArchiveQuotaValue
+            newRow = newRow + 1
+        End If
+    Next cell
+
+
+    ' Agregar encabezado para la columna "UsageLocation" en la hoja de destino
+    wsDestino.Cells(1, 6).Value = "UsageLocation"
+    newRow = 2 ' Comenzar en la segunda fila en la hoja de destino
+    
+    For Each cell In rng
+        If cell.Value ="UsageLocation" Then
+            ' Buscar la celda correspondiente en la columna C
+            UsageLocationValue = Trim(cell.Offset(0, 2).Value)
+            wsDestino.Cells(newRow, 6).Value = UsageLocationValue
+            newRow = newRow + 1
+        End If
+    Next cell
+
+    ' Agregar encabezado para la columna "AccountDisabled" en la hoja de destino
+    wsDestino.Cells(1, 7).Value = "AccountDisabled"
+    newRow = 2 ' Comenzar en la segunda fila en la hoja de destino
+    
+    For Each cell In rng
+        If cell.Value ="AccountDisabled" Then
+            ' Buscar la celda correspondiente en la columna C
+            AccountDisabledValue = Trim(cell.Offset(0, 2).Value)
+            wsDestino.Cells(newRow, 7).Value = AccountDisabledValue
+            newRow = newRow + 1
+        End If
+    Next cell
+
+
+    ' Agregar encabezado para la columna "Alias" en la hoja de destino
+    wsDestino.Cells(1, 8).Value = "Alias"
+    newRow = 2 ' Comenzar en la segunda fila en la hoja de destino
+    
+    For Each cell In rng
+        If cell.Value ="Alias" Then
+            ' Buscar la celda correspondiente en la columna C
+            AliasValue = Trim(cell.Offset(0, 2).Value)
+            wsDestino.Cells(newRow, 8).Value = AliasValue
+            newRow = newRow + 1
+        End If
+    Next cell
+
+    ' Agregar encabezado para la columna "OrganizationalUnit" en la hoja de destino
+    wsDestino.Cells(1, 9).Value = "OrganizationalUnit"
+    newRow = 2 ' Comenzar en la segunda fila en la hoja de destino
+    
+    For Each cell In rng
+        If cell.Value = "OrganizationalUnit" Then
+            ' Buscar el valor en la columna C
+            OrganizationalUnitValue = Trim(cell.Offset(0, 2).Value)
+            wsDestino.Cells(newRow, 9).Value = OrganizationalUnitValue
+            newRow = newRow + 1
+        End If
+    Next cell
+
+    ' Agregar encabezado para la columna "DisplayName" en la hoja de destino
+    wsDestino.Cells(1, 10).Value = "DisplayName"
+    newRow = 2 ' Comenzar en la segunda fila en la hoja de destino
+    
+    For Each cell In rng
+        If cell.Value = "OrganizationalUnit" Then
+            ' Buscar el valor en la columna C
+            DisplayNameValue = Trim(cell.Offset(0, 2).Value)
+            wsDestino.Cells(newRow, 10).Value = DisplayNameValue
+            newRow = newRow + 1
+        End If
+    Next cell
+
+    ' Agregar encabezado para la columna "EmailAddresses" en la hoja de destino
+    wsDestino.Cells(1, 11).Value = "EmailAddresses"
+    newRow = 2 ' Comenzar en la segunda fila en la hoja de destino
+    
+    For Each cell In rng
+        If cell.Value = "EmailAddresses" Then
+            ' Buscar la celda correspondiente en la columna C
+            EmailAddressesValue = Trim(cell.Offset(0, 2).Value)
+            wsDestino.Cells(newRow, 11).Value = EmailAddressesValue
+            newRow = newRow + 1
+        End If
+    Next cell
+
+
+    ' Agregar encabezado para la columna "LegacyExchangeDN" en la hoja de destino
+    wsDestino.Cells(1, 12).Value = "LegacyExchangeDN"
+    newRow = 2 ' Comenzar en la segunda fila en la hoja de destino
+    
+    For Each cell In rng
+        If cell.Value = "LegacyExchangeDN" Then
+            ' Buscar la celda correspondiente en la columna C
+            LegacyExchangeDNValue = Trim(cell.Offset(0, 2).Value)
+            wsDestino.Cells(newRow, 12).Value = LegacyExchangeDNValue
+            newRow = newRow + 1
+        End If
+    Next cell
+
+    ' Agregar encabezado para la columna "MaxSendSize" en la hoja de destino
+    wsDestino.Cells(1, 13).Value = "MaxSendSize"
+    newRow = 2 ' Comenzar en la segunda fila en la hoja de destino
+    
+    For Each cell In rng
+        If cell.Value = "MaxSendSize" Then
+            ' Buscar la celda correspondiente en la columna C
+            MaxSendSizeValue = Trim(cell.Offset(0, 2).Value)
+            wsDestino.Cells(newRow, 13).Value = MaxSendSizeValue
+            newRow = newRow + 1
+        End If
+    Next cell
+
+    ' Agregar encabezado para la columna "MaxReceiveSize" en la hoja de destino
+    wsDestino.Cells(1, 14).Value = "MaxReceiveSize"
+    newRow = 2 ' Comenzar en la segunda fila en la hoja de destino
+    
+    For Each cell In rng
+        If cell.Value = "MaxReceiveSize" Then
+            ' Buscar la celda correspondiente en la columna C
+            MaxReceiveSizeValue = Trim(cell.Offset(0, 2).Value)
+            wsDestino.Cells(newRow, 14).Value = MaxReceiveSizeValue
+            newRow = newRow + 1
+        End If
+    Next cell
+
+    ' Agregar encabezado para la columna "EmailAddressPolicyEnabled" en la hoja de destino
+    wsDestino.Cells(1, 15).Value = "EmailAddressPolicyEnabled"
+    newRow = 2 ' Comenzar en la segunda fila en la hoja de destino
+    
+    For Each cell In rng
+        If cell.Value = "EmailAddressPolicyEnabled" Then
+            ' Buscar la celda correspondiente en la columna C
+            EmailAddressPolicyEnabledValue = Trim(cell.Offset(0, 2).Value)
+            wsDestino.Cells(newRow, 15).Value = EmailAddressPolicyEnabledValue
+            newRow = newRow + 1
+        End If
+    Next cell
+
+    ' Agregar encabezado para la columna "PrimarySmtpAddress" en la hoja de destino
+    wsDestino.Cells(1, 16).Value = "PrimarySmtpAddress"
+    newRow = 2 ' Comenzar en la segunda fila en la hoja de destino
+    
+    For Each cell In rng
+        If cell.Value = "PrimarySmtpAddress" Then
+            ' Buscar la celda correspondiente en la columna C
+            PrimarySmtpAddressValue = Trim(cell.Offset(0, 2).Value)
+            wsDestino.Cells(newRow, 16).Value = PrimarySmtpAddressValue
+            newRow = newRow + 1
+        End If
+    Next cell
+
+
+    ' Agregar encabezado para la columna "RequireSenderAuthenticationEnabled" en la hoja de destino
+    wsDestino.Cells(1, 17).Value = "RequireSenderAuthenticationEnabled"
+    newRow = 2 ' Comenzar en la segunda fila en la hoja de destino
+    
+    For Each cell In rng
+        If cell.Value = "RequireSenderAuthenticationEnabled" Then
+            ' Buscar la celda correspondiente en la columna C
+            RequireSenderAuthenticationEnabledValue = Trim(cell.Offset(0, 2).Value)
+            wsDestino.Cells(newRow, 17).Value = RequireSenderAuthenticationEnabledValue
+            newRow = newRow + 1
+        End If
+    Next cell
+
+    ' Agregar encabezado para la columna "WindowsEmailAddress" en la hoja de destino
+    wsDestino.Cells(1, 18).Value = "WindowsEmailAddress"
+    newRow = 2 ' Comenzar en la segunda fila en la hoja de destino
+    
+    For Each cell In rng
+        If cell.Value = "WindowsEmailAddress" Then
+            ' Buscar la celda correspondiente en la columna C
+            WindowsEmailAddressValue = Trim(cell.Offset(0, 2).Value)
+            wsDestino.Cells(newRow, 18).Value = WindowsEmailAddressValue
+            newRow = newRow + 1
+        End If
+    Next cell
+
+    ' Agregar encabezado para la columna "ObjectCategory" en la hoja de destino
+    wsDestino.Cells(1, 19).Value = "ObjectCategory"
+    newRow = 2 ' Comenzar en la segunda fila en la hoja de destino
+    
+    For Each cell In rng
+        If cell.Value = "ObjectCategory" Then
+            ' Buscar la celda correspondiente en la columna C
+            ObjectCategoryValue = Trim(cell.Offset(0, 2).Value)
+            wsDestino.Cells(newRow, 19).Value = ObjectCategoryValue
+            newRow = newRow + 1
+        End If
+    Next cell
+
+    ' Agregar encabezado para la columna "ObjectClass" en la hoja de destino
+    wsDestino.Cells(1, 20).Value = "ObjectClass"
+    newRow = 2 ' Comenzar en la segunda fila en la hoja de destino
+    
+    For Each cell In rng
+        If cell.Value = "ObjectClass" Then
+            ' Buscar la celda correspondiente en la columna C
+            ObjectClassValue = Trim(cell.Offset(0, 2).Value)
+            wsDestino.Cells(newRow, 20).Value = ObjectClassValue
+            newRow = newRow + 1
+        End If
+    Next cell
+
+    ' Agregar encabezado para la columna "WhenChanged" en la hoja de destino
+    wsDestino.Cells(1, 21).Value = "WhenChanged"
+    newRow = 2 ' Comenzar en la segunda fila en la hoja de destino
+    
+    For Each cell In rng
+        If cell.Value = "WhenChanged" Then
+            ' Buscar la celda correspondiente en la columna C
+            WhenChangedValue = Trim(cell.Offset(0, 2).Value)
+            wsDestino.Cells(newRow, 21).Value = WhenChangedValue
+            newRow = newRow + 1
+        End If
+    Next cell
+
+    ' Agregar encabezado para la columna "WhenCreated" en la hoja de destino
+    wsDestino.Cells(1, 22).Value = "WhenCreated"
+    newRow = 2 ' Comenzar en la segunda fila en la hoja de destino
+    
+    For Each cell In rng
+        If cell.Value = "WhenCreated" Then
+            ' Buscar la celda correspondiente en la columna C
+            WhenCreatedValue = Trim(cell.Offset(0, 2).Value)
+            wsDestino.Cells(newRow, 22).Value = WhenCreatedValue
+            newRow = newRow + 1
+        End If
+    Next cell
+
+End Sub
